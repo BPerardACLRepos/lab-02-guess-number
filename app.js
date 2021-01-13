@@ -1,5 +1,27 @@
-// import functions and grab DOM elements
+import { startGame, runGame } from './game.js';
 
-// initialize state
+//buttons
+const startGameButt = document.querySelector('#start-game');
+const resetGameButt = document.querySelector('#reset-game');
+const submitGuessButt = document.querySelector('#submit-guess');
+//div
+const gameControl = document.querySelector('#game-controls');
+const userOutcome = document.querySelector('#user-outcome');
 
-// set event listeners to update state and DOM
+
+startGameButt.addEventListener('click', () => {
+    startGameButt.classList.add('hidden');
+    userOutcome.classList.add('hidden');
+    gameControl.classList.remove('hidden');
+    startGame();
+});
+
+submitGuessButt.addEventListener('click', () => {
+    runGame();
+    userOutcome.classList.remove('hidden');
+});
+
+resetGameButt.addEventListener('click', () => {
+    userOutcome.classList.add('hidden');
+    startGame();
+});
