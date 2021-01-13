@@ -31,6 +31,7 @@ startGameButt.addEventListener('click', () => {
 
 submitGuessButt.addEventListener('click', () => {
     runGame();
+    userOutcome.classList.remove('hidden');
 });
 
 resetGameButt.addEventListener('click', () => {
@@ -40,37 +41,46 @@ resetGameButt.addEventListener('click', () => {
 });
 
 function runGame() {
-    const userGuess = guessInput.valueAsNumber;
-    console.log(guesses);
+    let userGuess = guessInput.valueAsNumber;
+    userNotification.classList.remove('error');
 
     if (userGuess > 0 && userGuess <= 20 && userGuess % 1 === 0) {
         let guessResult = compareNumbers(userGuess, correctNumber);
-
         if (guessResult === 0) {
-            userOutcome.classList.remove('hidden');
             userNotification.textContent = 'Winner';
+            userNotification.classList.add('winner');
             submitGuessButt.classList.add('hidden');
+            totalWins++;
+            totalWinSpan.textContent = `${totalWins}`;
         } else if (guessResult === 1) {
-            userOutcome.classList.remove('hidden');
             userNotification.textContent = 'Too high';
         } else {
-            userOutcome.classList.remove('hidden');
             userNotification.textContent = 'Too low';
         }
-
-
+        //remove
         console.log(typeof guesses, guesses);
-
     } else {
-        console.log('Please guess an integer 1-20');
+        userNotification.textContent = ('Please guess an integer 1-20')
+        userNotification.classList.add('error');
+        guessInput.value = '';
         return;
     }
     guesses--;
+    guessInput.value = '';
     remainingGuessesSpan.textContent = `${guesses}`;
+    if (guesses === 0) {
+        userNotification.textContent = 'Not Winner';
+        userNotification.classList.add('not-winner');
+        submitGuessButt.classList.add('hidden');
+        totalLosses++;
+        totalLossSpan.textContent = `${totalLosses}`;
+    }
 }
 
 function startGame() {
     guesses = 4;
     correctNumber = Math.ceil(Math.random() * 20);
     remainingGuessesSpan.textContent = `${guesses}`;
+    userNotification.classList.remove('winner');
+    userNotification.classList.remove('not-winner');
 }

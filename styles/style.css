@@ -68,3 +68,17 @@ footer {
 .hidden {
     display: none;
 }
+
+.winner {
+    color: goldenrod;
+    font-size: 2.5rem;
+}
+
+.not-winner {
+    color: #f00;
+    font-size: 2.5rem;
+}
+
+.error {
+    background-color: #f00;
+}
