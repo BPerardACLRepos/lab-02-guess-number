@@ -1,3 +1,5 @@
+import { compareNumbers } from './utils.js';
+
 //input
 const guessInput = document.querySelector('#guess-input');
 //buttons
@@ -5,7 +7,7 @@ const startGameButt = document.querySelector('#start-game');
 const resetGameButt = document.querySelector('#reset-game');
 const submitGuessButt = document.querySelector('#submit-guess');
 //spans
-const remainingGuessSpan = document.querySelector('#remaining-guess');
+const remainingGuessesSpan = document.querySelector('#remaining-guesses');
 const totalWinSpan = document.querySelector('#total-wins');
 const totalLossSpan = document.querySelector('#total-losses');
 //div
@@ -42,22 +44,15 @@ function runGame() {
     console.log(guesses);
 
     if (userGuess > 0 && userGuess <= 20 && userGuess % 1 === 0) {
-        if (userGuess === correctNumber) {
-            console.log('Winner');
-        } else if (userGuess > correctNumber) {
-            console.log('Too high');
-        } else {
-            console.log('Too low');
-        }
+        let guessResult = compareNumbers(userGuess, correctNumber);
 
-        if (false) {
-            // userOutcome.classList.remove('hidden');
-            // userNotification.textContent = 'Winner';
-            // submitGuessButt.classList.add('hidden');
-        } else if ('Too high') {
+        if (guessResult === 0) {
+            userOutcome.classList.remove('hidden');
+            userNotification.textContent = 'Winner';
+            submitGuessButt.classList.add('hidden');
+        } else if (guessResult === 1) {
             userOutcome.classList.remove('hidden');
             userNotification.textContent = 'Too high';
-            console.log('Too high');
         } else {
             userOutcome.classList.remove('hidden');
             userNotification.textContent = 'Too low';
@@ -71,11 +66,11 @@ function runGame() {
         return;
     }
     guesses--;
-    console.log(guesses);
+    remainingGuessesSpan.textContent = `${guesses}`;
 }
 
 function startGame() {
     guesses = 4;
     correctNumber = Math.ceil(Math.random() * 20);
-    console.log(correctNumber);
+    remainingGuessesSpan.textContent = `${guesses}`;
 }
