@@ -37,7 +37,7 @@ export function runGame() {
             userNotification.textContent = 'Too low';
         }
     } else {
-        userNotification.textContent = ('Please guess an integer 1-20')
+        userNotification.textContent = ('Please guess an integer 1-20');
         userNotification.classList.add('error');
         guessInput.value = '';
         return;
