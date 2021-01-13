@@ -18,10 +18,20 @@ const endGameMsg = document.querySelector('#end-game-message');
 // Initial State
 let totalWins = 0;
 let totalLosses = 0;
-let remainingGuess = 4;
+
 
 startGameButt.addEventListener('click', () => {
     startGameButt.classList.add('hidden');
     userOutcome.classList.add('hidden');
     gameControl.classList.remove('hidden');
 });
+
+submitGuessButt.addEventListener('click', () => {
+    const correctNumber = Math.ceil(Math.random() * 20);
+    if (guessInput.valueAsNumber > 0 && guessInput.valueAsNumber <= 20 && guessInput.valueAsNumber % 1 === 0) {
+        console.log(correctNumber);
+    } else {
+        console.log('Please guess an integer 1-20');
+    }
+
+})
