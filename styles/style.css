@@ -41,7 +41,7 @@ section {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     background-color: #ffc0cb;
-    box-shadow: 5px 5px #808080;
+    box-shadow: 5px 5px #808080, 6px 6px #ffb6b1, 7px 7px #808080, 8px 8px #ffb6b1, 9px 9px #808080;
 }
 
 h3 {
