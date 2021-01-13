@@ -21,7 +21,6 @@ let correctNumber;
 export function runGame() {
     let userGuess = guessInput.valueAsNumber;
     userNotification.classList.remove('error');
-    console.log(userGuess);
 
     if (userGuess > 0 && userGuess <= 20 && userGuess % 1 === 0) {
         let guessResult = compareNumbers(userGuess, correctNumber);
@@ -59,7 +58,6 @@ export function startGame() {
     guessInput.value = '';
     guesses = 4;
     correctNumber = Math.ceil(Math.random() * 20);
-    console.log(correctNumber);
     remainingGuessesSpan.textContent = `${guesses}`;
     submitGuessButt.classList.remove('hidden');
     userNotification.classList.remove('winner');
