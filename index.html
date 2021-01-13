@@ -27,12 +27,15 @@
         </section>
         <section id="game-controls" class="hidden">
             <p>Remaining Guesses: <span id="remaining-guesses"></span></p>
-            <input type="number">
-            <button id="submit-guess">Submit Guess</button><button id="reset-game">Reset Game</button>
+            <input id="guess-input" type="number">
+            <button id="submit-guess">Submit Guess</button>
+            <button id="reset-game">Reset Game</button>
             <p>Wins: <span id="total-wins"></span></p>
             <p>Losses: <span id="total-losses"></span></p>
         </section>
         <section id="user-outcome" class="hidden">
+            <h4 id="guess-qualifier"></h4>
+            <p id="end-game-message"></p>
         </section>
 
     </main>

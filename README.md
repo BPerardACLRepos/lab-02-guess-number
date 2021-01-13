@@ -14,11 +14,25 @@
 - Instructions to user
 
 - Number input for guess
-  > const for DOM element
+  *> const for DOM element #guess-input
   > if guess is invalid, notify user and have them guess again
 
-- Button to submit guess
-  > const for DOM element
+- Buttons
+  *> const for DOM element
+  > start game #start-game
+  > reset game #reset-game
+  > submit guess #submit-guess
+
+- Spans for user info
+  *> const for DOM element
+  > remaining guesses #remaining-guesses
+  > wins #total-wins
+  > losses #total-losses
+
+- Div for game info
+  *> const for DOM element #user-outcome
+  > guess qualifier #guess-qualifier
+  > success story #end-game-message
 
 - Information to display
   > remaining guesses

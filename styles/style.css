@@ -40,7 +40,7 @@ section {
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    background-color: #fff;
+    background-color: #ffc0cb;
     box-shadow: 5px 5px #808080;
 }
 
